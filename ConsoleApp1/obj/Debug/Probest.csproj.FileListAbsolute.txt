@@ -1,0 +1,7 @@
+D:\01\Code\Probest\Trabalho01\ConsoleApp1\bin\Debug\ConsoleApp1.exe.config
+D:\01\Code\Probest\Trabalho01\ConsoleApp1\bin\Debug\ConsoleApp1.exe
+D:\01\Code\Probest\Trabalho01\ConsoleApp1\bin\Debug\ConsoleApp1.pdb
+D:\01\Code\Probest\Trabalho01\ConsoleApp1\obj\Debug\Probest.csprojAssemblyReference.cache
+D:\01\Code\Probest\Trabalho01\ConsoleApp1\obj\Debug\Probest.csproj.CoreCompileInputs.cache
+D:\01\Code\Probest\Trabalho01\ConsoleApp1\obj\Debug\ConsoleApp1.exe
+D:\01\Code\Probest\Trabalho01\ConsoleApp1\obj\Debug\ConsoleApp1.pdb
