@@ -10,9 +10,22 @@ namespace Probest
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Questao 1:");
+            //1
             var polySim = new PolygonSim(12, int.MaxValue);
-             Console.WriteLine(polySim.GetAverage(100000));
+            Console.WriteLine(polySim.GetAverage(100000));
 
+            //1d
+            var pmf = polySim.GetPMF(10001, 10001);
+            foreach (var pmfPair in pmf)
+            {
+                Console.WriteLine($"[{pmfPair.Key}] = {pmfPair.Value}");
+            }
+
+            Console.WriteLine("\n");
+            Console.WriteLine("Questao 2:");
+
+            //2
             for (int i = 0; i < 9; i++)
             {
                 var pos = Vector2Int.FromIndex(i, 3);
@@ -40,18 +53,34 @@ namespace Probest
             _random = new Random();
         }
 
-        public int GetPMF(int iterations)
+        public Dictionary<int, float> GetPMF(int t, int iterations)
         {
-            int vertexIndex = 0;
+            Dictionary<int, float> vertexHits = new Dictionary<int, float>();
+            for (int i = 0; i < _vertexCount; i++)
+            {
+                vertexHits.Add(i, 0);
+            }
 
             for (int i = 0; i < iterations; i++)
             {
-                int movement = _random.NextDouble() < 0.5f ? -1 : 1;
+                int vertexIndex = 0;
 
-                vertexIndex = (vertexIndex + movement + _vertexCount) % _vertexCount;
+                for (int j = 0; j < t; j++)
+                {
+                    int movement = _random.NextDouble() < 0.5f ? -1 : 1;
+
+                    vertexIndex = (vertexIndex + movement + _vertexCount) % _vertexCount;
+                }
+
+                vertexHits[vertexIndex] += 1;
             }
 
-            return vertexIndex;
+            for (int i = 0; i < _vertexCount; i++)
+            {
+                vertexHits[i] /= iterations;
+            }
+
+            return vertexHits;
         }
 
         public float GetAverage(int iterations)
